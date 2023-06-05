@@ -4,6 +4,8 @@
 /node_modules
 /.pnp
 .pnp.js
+password.txt
+/.env.local
 
 # testing
 /coverage
