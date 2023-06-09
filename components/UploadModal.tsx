@@ -5,6 +5,7 @@ import useUploadModal from "@/hooks/useUploadModal";
 import { useForm, FieldValues, SubmitHandler } from "react-hook-form";
 import Input from "./Input";
 import Button from "./Button";
+import { toast } from "react-hot-toast";
 
 const UploadModal = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -27,7 +28,15 @@ const UploadModal = () => {
     }
   };
 
-  const onSubmit: SubmitHandler<FieldValues> = async (values) => {};
+  const onSubmit: SubmitHandler<FieldValues> = async (values) => {
+    try {
+      setIsLoading(true);
+    } catch (error) {
+      toast.error("Something went wrong");
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <Modal
